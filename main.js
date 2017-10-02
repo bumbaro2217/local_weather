@@ -20,7 +20,16 @@ $(function() {
         return Math.round(Fheit) + "&deg; F";
     }
 
-    // function render
+    // API function
+
+    $.getJSON("https://freegeoip.net/json/").done(function(location) {
+        // console.log(location);
+        $("#country").html(location.country_name);
+        $("#city").html(location.city);
+        $("#latitude").html(location.latitude);
+        $("#longitude").html(location.longitude);
+    })
+
 
 
 })
